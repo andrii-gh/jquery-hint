@@ -4,7 +4,8 @@
         switch (action) {
             case 'show': {
                 options = $.extend({
-                    hideTimeout: 2000
+                    hideTimeout: 2000,
+                    noHide: false,
                 }, options);
 
                 show(options);
@@ -42,6 +43,10 @@
         `;
 
         $('body').append(template);
+
+        if (options.noHide) {
+            return;
+        }
 
         setTimeout(() => {
             hide(options);
